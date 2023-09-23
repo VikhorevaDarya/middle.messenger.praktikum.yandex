@@ -1,3 +1,3 @@
-export default function<T>(value: T) {
+export default function<T>(value: T): T {
     return value
 }
