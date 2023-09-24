@@ -1,17 +1,14 @@
-import './style.css'
+import './styles/globals.scss'
+import '@/pages'
+import '@/components'
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-    </a>
-    <h1>Testt</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+//import { Chat, SignIn, SignUp, Error404, Error500, Settings } from './pages'
+import { Router, routes } from './router'
+
+//const pages = [Chat, SignIn, SignUp, Error404, Error500, Settings]
+
+// pages.forEach((page) => Router.use(page))
+
+const router = new Router()
+
+routes.forEach((route) => router.renderPage(route))

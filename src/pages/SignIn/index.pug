@@ -1,0 +1,16 @@
+include ../../components/AuthCard/index.pug
+
+-
+  const fields = [
+    {
+      label: 'Логин',
+      type: 'text',
+    },
+    {
+      label: 'Пароль',
+      type: 'password',
+    },
+  ]
+
+section.sign-in
+  +authCard({ type: 'login', fields })
