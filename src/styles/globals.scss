@@ -14,8 +14,8 @@ html {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
+  @extend %flex-center;
+  
   margin: 0;
   padding: 0;
   width: 100%;
