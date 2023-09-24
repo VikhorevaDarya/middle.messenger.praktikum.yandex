@@ -1,1 +1,19 @@
-.input {}
+@use 'styles/colors' as clr;
+
+.input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 0.1rem solid clr.$primary;
+
+  padding: 0.5rem 0;
+
+  &:active {
+    outline: none;
+    border: none;
+  }
+
+  &::placeholder {
+    color: clr.$primary;
+    font-size: 1.2rem;
+  }
+}

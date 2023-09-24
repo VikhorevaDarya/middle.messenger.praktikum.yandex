@@ -1,0 +1,12 @@
+mixin input(params={})
+  -
+    const { id, type, value, label, placeholder } = params 
+    const className = `input`
+
+  input(
+    id=id 
+    type=type 
+    value=value
+    class=className
+    placeholder=placeholder
+  )

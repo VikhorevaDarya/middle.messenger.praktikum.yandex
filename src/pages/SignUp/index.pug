@@ -1,0 +1,37 @@
+include ../../components/AuthCard/index.pug
+
+-
+  const fields = [
+      {
+        label: 'Email',
+        type: 'email',
+      },
+      {
+        label: 'Login',
+        type: 'text',
+      },
+      {
+        label: 'Name',
+        type: 'text',
+      },
+      {
+        label: 'Surname',
+        type: 'text',
+      },
+      {
+        label: 'Phone',
+        type: 'phone',
+      },
+      {
+        label: 'Password',
+        type: 'password',
+      },
+      {
+        label: 'Password again',
+        type: 'password',
+      },
+    ]
+
+section.sign-up
+  +authCard({ type: 'signUp', fields })
+
