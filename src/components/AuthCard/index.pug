@@ -12,7 +12,7 @@ mixin authCard(params = {})
   .auth-card
     .auth-card__content
       h1.auth-card__title #{cardTitle}
-      .auth-card__fields 
+      form.auth-card__fields 
         each field in fields 
           +input({ placeholder: field.label, type: field.type })
 

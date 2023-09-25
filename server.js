@@ -10,6 +10,10 @@ app.use('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'))
 })
 
+app.use('/sign-in', (req, res) => {
+  res.sendFile(path.join(__dirname, 'pages/500/index.pug'))
+})
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`)
 })

@@ -2,9 +2,9 @@
   "name": "a",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
+    "start": "npm run build && node ./server.js",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
