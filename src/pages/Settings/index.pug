@@ -1,4 +1,64 @@
 extends ../../layouts/main
+include ../../components/Input/index.pug
+include ../../components/Button/index.pug
 
 block content
+  -
+    const fields = [
+      {
+        type: 'text',
+        name: 'first_name',
+        placeholder: 'Name'
+      },
+       {
+        type: 'text',
+        name: 'second_name',
+        placeholder: 'Surname'
+      },
+       {
+        type: 'text',
+        name: 'display_name',
+        placeholder: 'Display name'
+      },
+       {
+        type: 'text',
+        name: 'login',
+        placeholder: 'Login'
+      },
+       {
+        type: 'email',
+        name: 'email',
+        placeholder: 'Email'
+      },
+    ]
+
+    const passwordFields = [
+      { type: 'password', name: 'oldPassword', placeholder: 'Old password' },
+      { type: 'password', name: 'newPassword', placeholder: 'New password' },
+      { type: 'password', name: 'newPasswordAgain', placeholder: 'New password again' }
+    ]
+
   section.settings
+    form.settings__form
+      +input({ type: 'file', name: 'avatar', id: 'avatar' })
+        .settings__avatar
+          svg(width="40px", height="40px")
+            use(xlink:href="../../../static/icons/file.svg#file")
+      
+      .settings__fields
+        each field in fields 
+          -
+            const { type, name, placeholder } = field 
+          
+          +input({ type, name, placeholder })
+
+        .settings__password-fields
+          each field in fields 
+            -
+              const { type, name, placeholder } = field 
+            
+            +input({ type, name, placeholder })
+
+      .settings__submit 
+        +button({ type: 'submit' })
+          | Save
