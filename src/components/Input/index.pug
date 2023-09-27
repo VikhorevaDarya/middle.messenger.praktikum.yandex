@@ -1,6 +1,7 @@
 mixin input(params={})
   -
     const { id, type, value, name, placeholder } = params
+    const className = type === 'file' ? 'input input_file' : 'input'
 
   input(
     id=id 
@@ -8,4 +9,7 @@ mixin input(params={})
     value=value
     placeholder=placeholder
     name=name
-  ).input
+    class=className
+  )
+  label(for=id).input__label
+    block
