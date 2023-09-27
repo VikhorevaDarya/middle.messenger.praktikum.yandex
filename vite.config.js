@@ -3,9 +3,21 @@ import { resolve } from 'path'
 
 import pug from "vite-plugin-pug"
 import rollup from 'rollup-plugin-pug'
+import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 export default defineConfig({
-  plugins: [pug({ localImports: true }, { baseUrl: './views' }), rollup()],
+  plugins: [
+    pug({ localImports: true }, { baseUrl: './views' }),
+    rollup(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'static',
+          dest: ''
+        }
+      ]
+    })
+  ],
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
