@@ -12,12 +12,13 @@ mixin authCard(params = {})
   .auth-card
     .auth-card__content
       h1.auth-card__title #{cardTitle}
-      form.auth-card__fields 
-        each field in fields 
-          +input({ placeholder: field.label, type: field.type })
+      form.auth-card__form
+        .auth-card__form-fields 
+          each field in fields 
+            +input({ placeholder: field.label, type: field.type, name: field.name })
 
-    .auth-card__footer 
-      +button({ type: 'submit' })
-        | #{buttonTitle}
-      +button({ outline: true })
-        | #{outlineButtonTitle}
+        .auth-card__form-buttons 
+          +button({ type: 'submit' })
+            | #{buttonTitle}
+          +button({ outline: true })
+            | #{outlineButtonTitle}

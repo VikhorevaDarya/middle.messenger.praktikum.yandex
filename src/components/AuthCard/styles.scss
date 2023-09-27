@@ -16,6 +16,12 @@
   box-shadow: cfg.$box-shadow;
 
   padding: 2rem 3rem;
+
+  &__form {
+    @extend %flex-column;
+
+    justify-content: space-between;
+  }
   
 
   &__title {
@@ -27,11 +33,10 @@
     color: clr.$primary;
   }
 
-  &__fields {
+  &__form-fields {
     @extend %flex-column;
 
     gap: 2.4rem;
-
-    margin: 6rem 0;
+    margin: 2rem 0 5rem;
   }
 }

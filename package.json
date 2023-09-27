@@ -14,8 +14,9 @@
     "vite-plugin-pug": "0.3.2"
   },
   "dependencies": {
-    "express": "^4.18.2",
+    "express": "4.18.2",
     "pug": "3.0.2",
+    "rollup-plugin-pug": "1.1.1",
     "sass": "1.68.0"
   }
 }

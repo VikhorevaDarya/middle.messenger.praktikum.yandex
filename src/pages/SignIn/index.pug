@@ -1,16 +1,20 @@
+extends ../../layouts/main
 include ../../components/AuthCard/index.pug
 
--
-  const fields = [
-    {
-      label: 'Login',
-      type: 'text',
-    },
-    {
-      label: 'Password',
-      type: 'password',
-    },
-  ]
-
-section.sign-in
-  +authCard({ type: 'login', fields })
+block content
+  -
+    const fields = [
+      {
+        label: 'Login',
+        type: 'text',
+        name: 'login',
+      },
+      {
+        label: 'Password',
+        type: 'password',
+        name: 'password',
+      },
+    ]
+  
+  section.sign-in
+    +authCard({ type: 'login', fields })

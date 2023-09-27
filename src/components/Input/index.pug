@@ -1,12 +1,11 @@
 mixin input(params={})
   -
-    const { id, type, value, label, placeholder } = params 
-    const className = `input`
+    const { id, type, value, name, placeholder } = params
 
   input(
     id=id 
     type=type 
     value=value
-    class=className
     placeholder=placeholder
-  )
+    name=name
+  ).input

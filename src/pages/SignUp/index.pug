@@ -1,37 +1,46 @@
+extends ../../layouts/main
 include ../../components/AuthCard/index.pug
 
--
-  const fields = [
+block content
+  -
+    const fields = [
       {
         label: 'Email',
         type: 'email',
+        name: 'email',
       },
       {
         label: 'Login',
         type: 'text',
+        name: 'login',
       },
       {
         label: 'Name',
         type: 'text',
+        name: 'first_name',
       },
       {
         label: 'Surname',
         type: 'text',
+        name: 'second_name',
       },
       {
         label: 'Phone',
         type: 'phone',
+        name: 'phone',
       },
       {
         label: 'Password',
         type: 'password',
+        name: 'password',
       },
       {
         label: 'Password again',
         type: 'password',
+        name: 'password_again',
       },
     ]
 
-section.sign-up
-  +authCard({ type: 'signUp', fields })
+  section.sign-up
+    +authCard({ type: 'signUp', fields })
 

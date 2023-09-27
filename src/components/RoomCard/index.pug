@@ -1,0 +1,10 @@
+mixin roomCard(params={})
+  -
+    const { sender } = params 
+  
+  .room-card
+    img(src=`${sender.avatarSrc}`)
+
+    .room-card__content
+      h2.room-card__sender-name #{sender.name}
+      span.room-card__message #{sender.lastMessage.text}
