@@ -1,4 +1,26 @@
-body 
-  main#root.root 
-  include src/pages/SignUp/index.pug
+extends src/layouts/main
+
+mixin renderPageLink(path, label)
+  a(href=`src/pages/${path}/index.html`).pages__link
+    | #{label}
+
+block content
+  -
+    const pages = [
+      ['SignIn', 'Authorization'],
+      ['SignUp', 'Registration'],
+      ['Chat', 'Chat'],
+      ['Settings', 'Settings'],
+      ['NotFound', '404 Error page'],
+      ['ServerError', '500 Error page']
+    ]
+
   
+  ul.pages 
+    each page in pages
+      li.pages__item
+        -
+          const [path, label] = page
+
+        +renderPageLink(path, label)
+    

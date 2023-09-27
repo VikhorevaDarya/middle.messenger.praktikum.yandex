@@ -1,5 +1,6 @@
 @use 'fonts';
 @use 'helpers';
+@use 'colors' as clr;
 @use 'config' as cfg;
 
 html {
@@ -14,8 +15,6 @@ html {
 }
 
 body {
-  display: flex;
-  flex-direction: column;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -30,5 +29,40 @@ body {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.root {
+  @extend %flex-center;
+
+  height: 100%;
+
+  &__background {
+    @extend %flex-center;
+    
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    font-size: 100px;
+
+    right: 0;
+    top: 0;
+
+    z-index: -1;
+  }
+}
+
+.pages {
+  list-style-type: none;
+
+  &__link {
+    @extend %flex-center;
+
+    flex-direction: column;
+    color: clr.$primary;
+    font-size: 2rem;
+    text-decoration: none;
   }
 }
