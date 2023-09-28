@@ -5,6 +5,14 @@
 ## Demo
 https://preeminent-valkyrie-f18160.netlify.app/
 
+- `https://preeminent-valkyrie-f18160.netlify.app` — список всех страниц,
+- `https://preeminent-valkyrie-f18160.netlify.app/src/pages/signin` — страница авторизации,
+- `https://preeminent-valkyrie-f18160.netlify.app/src/pages/signup` — страница регистрации
+- `https://preeminent-valkyrie-f18160.netlify.app/src/pages/chat` — страница мессенджера (заглушка)
+- `https://preeminent-valkyrie-f18160.netlify.app/src/pages/settings` — страница настроек профиля
+- `https://preeminent-valkyrie-f18160.netlify.app/src/pages/notfound` — страница ошибки 404
+- `https://preeminent-valkyrie-f18160.netlify.app/src/pages/servererror` — страница ошибки 500
+
 ## UI
 За образец взяты [макеты Яндекса](https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?node-id=0%3A1&t=BfQk4KtXMAIq7AAr-0) с измененной цветовой палитрой.
 
