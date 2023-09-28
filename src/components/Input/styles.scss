@@ -12,6 +12,8 @@
   &:active, &:focus {
     outline: none;
     border: none;
+
+    border-bottom: 0.1rem solid clr.$primary;
   }
 
   &::placeholder {
