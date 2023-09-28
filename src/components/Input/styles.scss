@@ -1,7 +1,9 @@
 @use 'styles/colors' as clr;
+@use 'styles/config' as cfg;
 
 .input {
   background-color: transparent;
+  
   border: none;
   border-bottom: 0.1rem solid clr.$primary;
 
@@ -19,5 +21,9 @@
 
   &_file {
     opacity: 0;
+    width: 0;
+    height: 0;
+
+    z-index: cfg.$nigative-z-index;
   }
 }

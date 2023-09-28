@@ -2,6 +2,12 @@
 @use 'styles/colors' as clr;
 
 .settings {
+  .input__label {
+    width: 130px;
+
+    margin: 0 auto;
+  }
+  
   &__form {
     @extend %flex-column;
 
@@ -30,8 +36,6 @@
 
     background-color: clr.$pink-10;
     border-radius: 50%;
-
-    margin: 0 auto;
 
     cursor: pointer;
   }
