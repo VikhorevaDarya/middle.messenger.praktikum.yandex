@@ -7,7 +7,7 @@ import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 export default defineConfig({
   plugins: [
-    pug({ localImports: true }, { baseUrl: './views' }),
+    pug({ localImports: true }),
     rollup(),
     viteStaticCopy({
       targets: [

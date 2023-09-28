@@ -1,6 +1,4 @@
 extends ../../layouts/main
-include ../../components/Input/index.pug
-include ../../components/Button/index.pug
 
 block content
   -
@@ -38,26 +36,22 @@ block content
       { type: 'password', name: 'newPasswordAgain', placeholder: 'New password again' }
     ]
 
+    const iconPath = "../../../static/icons/file.svg#file"
+
   section.settings
     form.settings__form
       +input({ type: 'file', name: 'avatar', id: 'avatar' })
         .settings__avatar
           svg(width="40px", height="40px")
-            use(xlink:href="../../../static/icons/file.svg#file")
+            use(xlink:href=iconPath)
       
       .settings__fields
         each field in fields 
-          -
-            const { type, name, placeholder } = field 
-          
-          +input({ type, name, placeholder })
+          +input(field)
 
         .settings__password-fields
           each field in passwordFields 
-            -
-              const { type, name, placeholder } = field 
-            
-            +input({ type, name, placeholder })
+            +input(field)
 
       .settings__submit 
         +button({ type: 'submit' })

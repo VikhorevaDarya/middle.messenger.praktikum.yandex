@@ -15,10 +15,13 @@ mixin authCard(params = {})
       form.auth-card__form
         .auth-card__form-fields 
           each field in fields 
-            +input({ placeholder: field.label, type: field.type, name: field.name })
+            -
+              const { label, type, name } = field 
+            
+            +input({ placeholder: label, type, name })
 
         .auth-card__form-buttons 
           +button({ type: 'submit' })
             | #{buttonTitle}
-          +button({ outline: true })
+          +button({ outline: true, type: 'button'})
             | #{outlineButtonTitle}

@@ -10,8 +10,8 @@
   &__rooms-list {
     @extend %flex-column;
 
-    max-width: 300px;
     width: 100%;
+    max-width: 300px;
 
     border-right: 0.1rem solid clr.$primary;
   }
@@ -29,8 +29,8 @@
     }
 
     .input {
-      background-color: clr.$white;
       width: 100%;
+      background-color: clr.$white;
     }
   }
 
@@ -44,9 +44,5 @@
 
   &__room-messages {
     height: 100%;
-  }
-
-  &__form {
-
   }
 }
