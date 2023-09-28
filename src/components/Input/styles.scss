@@ -2,12 +2,12 @@
 @use 'styles/config' as cfg;
 
 .input {
+  padding: 0.5rem;
+  
   background-color: transparent;
   
   border: none;
   border-bottom: 0.1rem solid clr.$primary;
-
-  padding: 0.5rem;
 
   &:active, &:focus {
     outline: none;
@@ -23,6 +23,7 @@
 
   &_file {
     opacity: 0;
+
     width: 0;
     height: 0;
 

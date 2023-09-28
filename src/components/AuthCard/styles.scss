@@ -3,12 +3,12 @@
 @use 'styles/config' as cfg;
 
 .auth-card {
-  @extend %flex;
+  @extend %flex-column;
 
-  flex-direction: column;
   justify-content: space-between;
 
-  width: 340px;
+  width: 100%;
+  max-width: 340px;
 
   background-color: adjust-color($color: clr.$pink-10, $lightness: 5%);
 
