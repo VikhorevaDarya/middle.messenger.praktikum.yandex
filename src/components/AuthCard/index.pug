@@ -16,9 +16,9 @@ mixin authCard(params = {})
         .auth-card__form-fields 
           each field in fields 
             -
-              const { label, type, name } = field 
+              const { label, type, name, autocomplete } = field 
             
-            +input({ placeholder: label, type, name })
+            +input({ placeholder: label, type, name, autocomplete })
 
         .auth-card__form-buttons 
           +button({ type: 'submit' })
