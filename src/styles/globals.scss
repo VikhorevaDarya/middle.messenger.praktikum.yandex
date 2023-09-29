@@ -39,10 +39,12 @@ body {
 }
 
 .pages {
-  @extend %flex-column;
-  gap: 1.6rem;
+  &__list {
+    @extend %flex-column;
+    gap: 1.6rem;
   
-  list-style-type: none;
+    list-style-type: none;
+  }
 
   &__link {
     @extend %flex-center;

@@ -15,12 +15,12 @@ block content
       ['ServerError', '500 Error page']
     ]
 
-  
-  ul.pages 
-    each page in pages
-      li.pages__item
-        -
-          const [path, label] = page
+  nav.pages
+    ul.pages__list
+      each page in pages
+        li.pages__item
+          -
+            const [path, label] = page
 
-        +renderPageLink(path, label)
-    
+          +renderPageLink(path, label)
+      
