@@ -1,0 +1,84 @@
+@use 'styles/helpers';
+@use 'styles/colors' as clr;
+
+.room-card {
+  @extend %flex;
+
+  align-items: center;
+  gap: 1.2rem;
+
+  width: 100%;
+
+  padding: 1rem;
+
+  border-bottom: 0.1rem solid clr.$primary;
+
+  cursor: pointer;
+
+  &__content {
+    @extend %flex-column;
+
+    justify-content: space-between;
+
+    height: 100%;
+    width: 100%;
+
+    padding: 0.5rem 0;
+  }
+
+  &__header {
+    @extend %flex;
+
+    justify-content: space-between;
+
+    width: 100%;
+  }
+
+  &__avatar {
+    @extend %flex-center;
+
+    min-width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+
+    background-color: clr.$primary;
+    color: clr.$white;
+
+    font-size: 3rem;
+    font-weight: 600;
+  }
+
+  &__sender-name {
+    font-size: 1.8rem;
+
+    padding: 0;
+    margin: 0;
+  }
+
+  &__footer {
+    @extend %flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__time {
+    font-size: 1rem;
+    opacity: 0.5;
+  }
+
+  &__unread {
+    @extend %flex-center;
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    background-color: adjust-color($color: clr.$primary, $blackness: 20%);
+    color: clr.$white;
+
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}

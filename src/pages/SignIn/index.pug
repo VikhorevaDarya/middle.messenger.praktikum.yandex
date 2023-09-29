@@ -1,0 +1,21 @@
+extends ../../layouts/main
+
+block content
+  -
+    const fields = [
+      {
+        label: 'Login',
+        type: 'text',
+        name: 'login',
+        autocomplete: 'login',
+      },
+      {
+        label: 'Password',
+        type: 'password',
+        name: 'password',
+        autocomplete: 'current-password',
+      },
+    ]
+  
+  section.sign-in
+    +authCard({ type: 'login', fields })

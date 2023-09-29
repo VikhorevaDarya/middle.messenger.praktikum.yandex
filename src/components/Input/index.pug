@@ -1,0 +1,16 @@
+mixin input(params={})
+  -
+    const { id, type, value, name, placeholder, autocomplete } = params
+    const className = type === 'file' ? 'input input_file' : 'input'
+
+  input(
+    id=id 
+    type=type 
+    value=value
+    placeholder=placeholder
+    name=name
+    class=className
+    autocomplete=autocomplete
+  )
+  label(for=id).input__label
+    block

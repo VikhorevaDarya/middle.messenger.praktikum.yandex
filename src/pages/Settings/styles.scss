@@ -1,0 +1,42 @@
+@use 'styles/helpers';
+@use 'styles/colors' as clr;
+
+.settings {
+  .input__label {
+    width: 130px;
+
+    margin: 0 auto;
+  }
+  
+  &__form {
+    @extend %flex-column;
+
+    width: 400px
+  }
+
+  &__fields {
+    @extend %flex-column;
+
+    gap: 1.6rem;
+    margin: 4rem 0;
+  }
+
+  &__password-fields {
+    @extend %flex-column;
+
+    gap: 1.6rem;
+    margin-top: 2rem;
+  }
+
+  &__avatar {
+    @extend %flex-center;
+
+    width: 130px;
+    height: 130px;
+
+    background-color: clr.$pink-10;
+    border-radius: 50%;
+
+    cursor: pointer;
+  }
+}

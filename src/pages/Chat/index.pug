@@ -1,0 +1,36 @@
+extends ../../layouts/main
+
+block content
+  -
+    const senders = [
+      {
+        name: 'John Doe',
+        avatarSrc: '',
+        lastMessage: {
+          text: 'Lorem ipsum',
+          time: '12:00',
+        },
+        unread: 7,
+      },
+      {
+        name: 'Ann White',
+        avatarSrc: '',
+        lastMessage: {
+          text: 'hi how are you?',
+          time: '15:45',
+        }
+      },
+    ]
+
+  section.chat 
+    .chat__rooms-list
+      each sender in senders 
+        +roomCard({ sender })
+    .chat__room
+      .chat__room-header
+      .chat__room-messages 
+
+      form.chat__form
+        +input({ placeholder: 'Type your message here...', type: 'text', name: 'message' })
+        +button({ type: 'submit', class: 'chat__submit' })
+          | Send

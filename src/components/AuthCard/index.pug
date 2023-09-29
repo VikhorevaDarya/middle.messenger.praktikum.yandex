@@ -1,0 +1,27 @@
+include ../Button/index.pug
+include ../Input/index.pug
+
+mixin authCard(params = {})
+  -
+    const { title, fields, type } = params
+    const isLogin = type === 'login'
+    const buttonTitle = isLogin ? 'Enter' : 'Create account'
+    const outlineButtonTitle = isLogin ? `Don't have account?` : 'Already have account?'
+    const cardTitle = isLogin ? 'Log In' : 'Sign Up'
+
+  .auth-card
+    .auth-card__content
+      h1.auth-card__title #{cardTitle}
+      form.auth-card__form
+        .auth-card__form-fields 
+          each field in fields 
+            -
+              const { label, type, name, autocomplete } = field 
+            
+            +input({ placeholder: label, type, name, autocomplete })
+
+        .auth-card__form-buttons 
+          +button({ type: 'submit' })
+            | #{buttonTitle}
+          +button({ outline: true, type: 'button'})
+            | #{outlineButtonTitle}

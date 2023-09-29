@@ -1,0 +1,32 @@
+@use 'styles/colors' as clr;
+@use 'styles/config' as cfg;
+
+.input {
+  padding: 0.5rem;
+  
+  background-color: transparent;
+  
+  border: none;
+  border-bottom: 0.1rem solid clr.$primary;
+
+  &:active, &:focus {
+    outline: none;
+    border: none;
+
+    border-bottom: 0.1rem solid clr.$primary;
+  }
+
+  &::placeholder {
+    color: clr.$primary;
+    font-size: 1.2rem;
+  }
+
+  &_file {
+    opacity: 0;
+
+    width: 0;
+    height: 0;
+
+    z-index: cfg.$nigative-z-index;
+  }
+}

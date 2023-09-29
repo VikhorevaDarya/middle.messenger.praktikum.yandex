@@ -1,0 +1,42 @@
+@use 'styles/helpers';
+@use 'styles/colors' as clr;
+@use 'styles/config' as cfg;
+
+.auth-card {
+  @extend %flex-column;
+
+  justify-content: space-between;
+
+  width: 100%;
+  max-width: 340px;
+
+  background-color: adjust-color($color: clr.$pink-10, $lightness: 5%);
+
+  border-radius: cfg.$border-radius;
+  box-shadow: cfg.$box-shadow;
+
+  padding: 2rem 3rem;
+
+  &__form {
+    @extend %flex-column;
+
+    justify-content: space-between;
+  }
+  
+
+  &__title {
+    font-size: 2.2rem;
+    font-weight: 700;
+
+    text-align: center;
+
+    color: clr.$primary;
+  }
+
+  &__form-fields {
+    @extend %flex-column;
+
+    gap: 2.4rem;
+    margin: 2rem 0 5rem;
+  }
+}
