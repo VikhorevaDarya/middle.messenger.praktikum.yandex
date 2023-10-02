@@ -1,6 +1,6 @@
-extends ../../layouts/main
+extends ../../layouts/Auth/index
 
-block content
+block auth
   -
     const fields = [
       {
@@ -47,6 +47,5 @@ block content
       },
     ]
 
-  section.sign-up
-    +authCard({ type: 'signUp', fields })
+  +authCard({ type: 'signUp', fields })
 

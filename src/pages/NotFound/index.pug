@@ -1,5 +1,4 @@
-extends ../../layouts/main
+extends ../../layouts/Error/index
 
-block content
-  section.not-found
-    +error({ status: 404, text: 'Not found' })
+block error
+  +error({ status: 404, text: 'Not found' })

@@ -1,6 +1,6 @@
-extends ../../layouts/main
+extends ../../layouts/Auth/index
 
-block content
+block auth
   -
     const fields = [
       {
@@ -16,6 +16,5 @@ block content
         autocomplete: 'current-password',
       },
     ]
-  
-  section.sign-in
-    +authCard({ type: 'login', fields })
+
+  +authCard({ type: 'login', fields })

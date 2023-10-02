@@ -1,5 +1,4 @@
-extends ../../layouts/main
+extends ../../layouts/Error/index
 
-block content
-  section.server-error
-    +error({ status: 500, text: `We've already fixed it` })
+block error
+  +error({ status: 500, text: `We've already fixed it` })
