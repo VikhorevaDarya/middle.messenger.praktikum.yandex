@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "start": "npm run build && node ./server.js",
-    "build": "tsc && vite build"
+    "build": "tsc && vite build",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "engines": {
     "node": ">=12"
@@ -15,6 +16,7 @@
     "@typescript-eslint/parser": "^6.7.4",
     "eslint": "^8.50.0",
     "eslint-config-airbnb": "^19.0.4",
+    "prettier": "^3.0.3",
     "typescript": "5.0.2",
     "vite": "4.4.5",
     "vite-plugin-pug": "0.3.2"
