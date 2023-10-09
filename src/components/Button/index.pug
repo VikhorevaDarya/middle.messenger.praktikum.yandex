@@ -1,8 +1,8 @@
 mixin button(params={})
   -
-    const { outline, type, id, value, disabled } = params
+    const { outline, type, id, value, disabled, additionalClass } = params
     const outlineClassName = outline ? 'button_outline' : ''
-    const className = `button ${outlineClassName}`
+    const className = `button ${outlineClassName} ${additionalClass ? additionalClass : ''}`
 
   button(
   id=id

@@ -22,6 +22,10 @@ block content
       },
     ]
 
+    const field = { placeholder: 'Type your message here...', type: 'text', name: 'message' }
+    const formProps = { fields: [field], submitClassName: 'chat__submit', inputProps: { type: 'textarea', additionalClass: 'chat__input', placeholder: 'Type your message here...' } }
+    const arrowIconPath = "../../../static/icons/arrow.svg#arrow"
+
   section.chat 
     .chat__rooms-list
       each sender in senders 
@@ -30,7 +34,8 @@ block content
       .chat__room-header
       .chat__room-messages 
 
-      form.chat__form
-        +input({ placeholder: 'Type your message here...', type: 'text', name: 'message' })
-        +button({ type: 'submit', class: 'chat__submit' })
-          | Send
+      .chat__form
+        +form(formProps)
+          block button 
+            svg(width="40px", height="40px").chat__arrow-icon
+              use(xlink:href=arrowIconPath)  
