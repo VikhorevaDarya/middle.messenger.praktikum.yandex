@@ -1,3 +1,5 @@
+import pug from 'pug'
+
 import { EventBus } from '@/services'
 
 export const LIFECYCLE_EVENTS = {
@@ -6,18 +8,25 @@ export const LIFECYCLE_EVENTS = {
   FLOW_RENDER: 'flow:render',
 }
 
+export type BaseComponentProps = {
+  id?: string
+  HTMLRoot: HTMLElement
+}
+
 export type LyfecycleEventType = keyof typeof LIFECYCLE_EVENTS
 
 export default class BaseComponent {
   private eventBus = new EventBus()
 
-  constructor(protected element: HTMLElement) {
+  constructor(
+    protected template: HTMLElement,
+    protected props: BaseComponentProps,
+  ) {
     this.registerEvents()
-    this.init()
   }
 
-  public getElement() {
-    return this.element
+  public getTemplate() {
+    return this.template
   }
 
   public dispatch(event: LyfecycleEventType) {
@@ -30,13 +39,15 @@ export default class BaseComponent {
     this.eventBus.on(LIFECYCLE_EVENTS.FLOW_RENDER, this.render.bind(this))
   }
 
-  private createDocumnetElement(tagname: string) {
-    return document.createElement(tagname)
+  private getCompiledTemplate() {
+    return pug.compile(this.template)
   }
 
-  private init() {}
+  private render() {
+    const compiledTemplate = this.getCompiledTemplate()
 
-  private render() {}
+    this.props.HTMLRoot?.appendChild(compiledTemplate)
+  }
 
   private componentDidMount() {}
 
