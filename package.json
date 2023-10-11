@@ -12,12 +12,12 @@
     "node": ">=12"
   },
   "devDependencies": {
-    "@types/pug": "^2.0.7",
-    "@typescript-eslint/eslint-plugin": "^6.7.4",
-    "@typescript-eslint/parser": "^6.7.4",
-    "eslint": "^8.50.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "prettier": "^3.0.3",
+    "@types/pug": "2.0.7",
+    "@typescript-eslint/eslint-plugin": "6.7.4",
+    "@typescript-eslint/parser": "6.7.4",
+    "eslint": "8.50.0",
+    "eslint-config-airbnb": "19.0.4",
+    "prettier": "3.0.3",
     "typescript": "5.0.2",
     "vite": "4.4.5",
     "vite-plugin-pug": "0.3.2"
