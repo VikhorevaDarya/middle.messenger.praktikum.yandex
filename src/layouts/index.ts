@@ -1,3 +1,3 @@
-export { default as Auth } from './Auth'
-export { default as Main } from './Main'
-export { default as Error } from './Error'
+export { default as AuthLayout } from './Auth'
+export { default as MainLayout } from './Main'
+export { default as ErrorLayout } from './Error'

@@ -1,18 +1,18 @@
 extends src/layouts/Main/index
 
 mixin renderPageLink(path, label)
-  a(href=`src/pages/${path}/index.html`).pages__link
+  a(href=`/${path}`).pages__link
     | #{label}
 
 block content
   -
     const pages = [
-      ['SignIn', 'Authorization'],
-      ['SignUp', 'Registration'],
-      ['Chat', 'Chat'],
-      ['Settings', 'Settings'],
-      ['NotFound', '404 Error page'],
-      ['ServerError', '500 Error page']
+      ['sign-in', 'Authorization'],
+      ['sign-up', 'Registration'],
+      ['chat', 'Chat'],
+      ['settings', 'Settings'],
+      ['not-found', '404 Error page'],
+      ['server-error', '500 Error page']
     ]
 
   nav.pages

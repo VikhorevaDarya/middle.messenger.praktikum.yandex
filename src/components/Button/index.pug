@@ -1,14 +1,11 @@
-mixin button(params={})
-  -
-    const { outline, type, id, value, disabled, additionalClass } = params
-    const outlineClassName = outline ? 'button_outline' : ''
-    const className = `button ${outlineClassName} ${additionalClass ? additionalClass : ''}`
+-
+  const className = outline ? 'button button_outline' : 'button'
 
-  button(
+button(
   id=id
   type=type
-  class=className
   value=value
   disabled=disabled
+  class=className
   )
-    block
+    | !{title}

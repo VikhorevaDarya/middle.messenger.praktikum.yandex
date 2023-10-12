@@ -1,11 +1,6 @@
-mixin error(params={})
-  -
-    const { status, text } = params
+section.error 
+  h1.error__status | !{status}
+  p.error__text | !{text}
 
-  .error 
-    h1.error__status #{status}
-    p.error__text #{text}
-
-    .error__button
-      +button({ outline: true })
-        | Назад к чатам
+  .error__button 
+    | !{button}

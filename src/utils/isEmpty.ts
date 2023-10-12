@@ -1,6 +1,6 @@
 import isObject from './isObject'
 
-export default function isEmpty<T>(value: T): boolean | undefined {
+export default function isEmpty<T>(value: T): boolean | void {
   if (value) {
     if (Array.isArray(value)) return value.length === 0
     if (isObject(value)) return Object.keys(value as Object).length === 0

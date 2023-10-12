@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -10,6 +10,11 @@
     <link rel="icon" type="image/svg+xml" href="static/images/favicon.png" />
     <title>Chat</title>
   </head>
-  <pug src="./index.pug"></pug>
-  <script type="module" src="src/app.ts"></script>
+
+  <body>
+    <main id="root" class="root">
+      <pug src="./index.pug"></pug>
+    </main>
+    <script type="module" src="src/app.ts"></script>
+  </body>
 </html>

@@ -1,14 +1,2 @@
-mixin form(params = {})
-  -
-    const { fields, submitClassName, formClassName, submitTitle, inputProps } = params
-
-  form.form(class=formClassName)
-    .form__fields
-      each field in fields 
-        -
-          const { label, type, name, autocomplete } = field 
-      
-        +input({ placeholder: label, type, name, autocomplete, ...inputProps })
-    .form__submit
-      +button({ type: 'submit', additionalClass: submitClassName })
-        block button
+form.form
+  | !{children}

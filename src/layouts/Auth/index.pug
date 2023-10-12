@@ -1,7 +1,3 @@
-extends ../Main/index
-
-block content 
-  section.auth 
-    .auth__card 
-      block auth 
-    img(src='../../../static/images/cloud.png').auth__image
+section.auth
+  .auth__card 
+    | !{children}
