@@ -1,7 +1,4 @@
-extends ../Main/index
-
-block content 
-  section.error
-    .error__content 
-      block error 
-    img(src='../../../static/images/cat.png').error__image
+section.error
+  .error__content 
+   | !{children.error}
+  img(src='../../../static/images/cat.png').error__image

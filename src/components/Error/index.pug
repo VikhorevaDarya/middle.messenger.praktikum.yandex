@@ -1,6 +1,9 @@
-section.error 
-  h1.error__status | !{status}
-  p.error__text | !{text}
+section.error
+  -
+    const { button } = children 
+
+  h1.error__status !{status}
+  p.error__text !{text}
 
   .error__button 
     | !{button}

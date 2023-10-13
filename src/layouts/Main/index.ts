@@ -10,5 +10,7 @@ export default class MainLayout extends BaseComponent {
 
   constructor(props) {
     super({ HTMLRoot, ...props })
+
+    this.dispatchRender()
   }
 }

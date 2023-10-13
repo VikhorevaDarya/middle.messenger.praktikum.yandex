@@ -1,2 +1,7 @@
 form.form
-  | !{children}
+  -
+    const { fields, button } = children
+  .form__fields
+    each field in fields
+      | !{field}
+  | !{button}

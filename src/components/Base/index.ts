@@ -2,7 +2,7 @@ import { v4 as makeUUID } from 'uuid'
 import { EventBus } from '@/services'
 
 export const LIFECYCLE_EVENTS = {
-  COMPILE: 'flow:compile',
+  FLOW_COMPILE: 'flow:compile',
   FLOW_CDM: 'flow:component-did-mount',
   FLOW_CDU: 'flow:component-did-update',
   FLOW_RENDER: 'flow:render',
@@ -15,7 +15,7 @@ export type BaseComponentProps = {
   HTMLRoot: string
   className?: string
   listeners: BrowserEventListenersType[]
-  children?: (BaseComponent<BaseComponentProps> | string)[]
+  children?: BaseComponent<BaseComponentProps> | BaseComponent<BaseComponentProps>[]
 }
 
 export type LyfecycleEventType = keyof typeof LIFECYCLE_EVENTS
@@ -48,7 +48,7 @@ export default class BaseComponent<TProps> {
   }
 
   private registerEvents() {
-    this.eventBus.on(LIFECYCLE_EVENTS.COMPILE, this.compile.bind(this))
+    this.eventBus.on(LIFECYCLE_EVENTS.FLOW_COMPILE, this.compile.bind(this))
     this.eventBus.on(LIFECYCLE_EVENTS.FLOW_CDM, this.componentDidMount.bind(this))
     this.eventBus.on(LIFECYCLE_EVENTS.FLOW_CDU, this.componentDidUpdate.bind(this))
     this.eventBus.on(LIFECYCLE_EVENTS.FLOW_RENDER, this.render.bind(this))
@@ -59,13 +59,11 @@ export default class BaseComponent<TProps> {
   }
 
   private createTemplatePlaceholder() {
-    const placeholder = `<div ${componentPlaceholderAttributeNameId}="${this.internalId}"></div>`
-
-    return placeholder
+    return `<div ${componentPlaceholderAttributeNameId}="${this.internalId}"></div>`
   }
 
   protected dispatchCompile() {
-    this.dispatch(LIFECYCLE_EVENTS.COMPILE as LyfecycleEventType)
+    this.dispatch(LIFECYCLE_EVENTS.FLOW_COMPILE as LyfecycleEventType)
   }
 
   protected dispatchRender() {
@@ -77,18 +75,25 @@ export default class BaseComponent<TProps> {
 
     const props = this.props
 
-    node.innerHTML = this.template({
-      ...props,
-      children: props.children
-        ? Object.values(props.children).map((child) => {
-            if (child instanceof BaseComponent) {
-              return child.createTemplatePlaceholder()
-            }
+    let updatedChildren = {}
 
-            return child
-          })
-        : null,
-    })
+    if (props.children) {
+      for (const [key, value] of Object.entries(props.children)) {
+        updatedChildren = {
+          ...updatedChildren,
+          [key]: Array.isArray(value)
+            ? value.map((item) => item.createTemplatePlaceholder())
+            : value.createTemplatePlaceholder(),
+        }
+      }
+    }
+
+    const templateProps = {
+      ...props,
+      children: updatedChildren,
+    }
+
+    node.innerHTML = this.template(templateProps)
 
     return node.content
   }
@@ -122,7 +127,9 @@ export default class BaseComponent<TProps> {
     if (HTMLRootElement) {
       HTMLRootElement.replaceChildren(compiledTemplate)
     } else {
-      const updatedElement = document.querySelector(`[data-id]`)
+      const updatedElement = document.querySelector(
+        `[${componentPlaceholderAttributeNameId}=${this.internalId}]`,
+      )
 
       if (updatedElement) {
         updatedElement.replaceWith(compiledTemplate)
@@ -130,11 +137,9 @@ export default class BaseComponent<TProps> {
     }
 
     if (props.children) {
-      Object.values(props.children).forEach((child) => {
-        if (child instanceof BaseComponent) {
-          child.dispatchRender()
-        }
-      })
+      for (const [key, value] of Object.entries(props.children)) {
+        Array.isArray(value) ? value.map((item) => item.dispatchRender()) : value.dispatchRender()
+      }
     }
   }
 

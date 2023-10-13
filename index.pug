@@ -1,10 +1,8 @@
-extends src/layouts/Main/index
-
 mixin renderPageLink(path, label)
   a(href=`/${path}`).pages__link
     | #{label}
 
-block content
+section
   -
     const pages = [
       ['sign-in', 'Authorization'],

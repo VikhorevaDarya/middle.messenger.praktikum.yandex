@@ -16,7 +16,7 @@ const fields = [
   },
 ]
 
-const inputs = fields.map((field) => new Input(field))
+const inputs = fields.map((field) => new Input({ ...field, placeholder: field.label }))
 
 export default class SignIn {
   constructor() {
@@ -28,7 +28,7 @@ export default class SignIn {
           children: {
             form: new Form({
               children: {
-                inputs,
+                fields: inputs,
                 button: new Button({
                   title: 'Create account',
                   type: 'submit',

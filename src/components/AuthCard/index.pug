@@ -1,6 +1,10 @@
 section.auth-card
   -
-    const { form, button } = children
+    const { outlineButton, form } = children 
+    
   .auth-card__content
     h1.auth-card__title !{title}
-    | !{children}
+    .auth-card__form
+      | !{form}
+    .auth-card__button
+      | !{outlineButton}

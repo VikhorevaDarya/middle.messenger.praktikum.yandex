@@ -1,5 +1,5 @@
 import { MainLayout } from '@/layouts'
-import { Form } from '@/components'
+import { Form, Input, Button } from '@/components'
 
 import './styles.scss'
 
@@ -54,10 +54,22 @@ const fields = [
   },
 ]
 
+const inputs = fields.map((field) => new Input(field))
+
 export default class SettingsPage {
   constructor() {
     return new MainLayout({
-      children: new Form({ fields }),
+      children: {
+        block: new Form({
+          children: {
+            fields: inputs,
+            button: new Button({
+              type: 'submit',
+              title: 'Update profile',
+            }),
+          },
+        }),
+      },
     })
   }
 }
