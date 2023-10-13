@@ -1,6 +1,6 @@
 import BaseComponent, { BaseComponentProps } from '@/components/Base'
 
-import templateString from './index.pug'
+import template from './index.pug'
 import './styles.scss'
 
 export type InputPropsType = {
@@ -10,11 +10,11 @@ export type InputPropsType = {
   name: string
   placeholder?: string
   autocomplete?: string
-  additionalClass?: string
+  class?: string
 } & BaseComponentProps
 
-export default class Input extends BaseComponent {
-  protected template = templateString
+export default class Input extends BaseComponent<InputPropsType> {
+  protected template = template
 
   constructor(props: InputPropsType) {
     super(props)

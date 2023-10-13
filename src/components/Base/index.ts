@@ -2,10 +2,10 @@ import { v4 as makeUUID } from 'uuid'
 import { EventBus } from '@/services'
 
 export const LIFECYCLE_EVENTS = {
-  FLOW_COMPILE: 'flow:compile',
-  FLOW_CDM: 'flow:component-did-mount',
-  FLOW_CDU: 'flow:component-did-update',
-  FLOW_RENDER: 'flow:render',
+  COMPILE: 'compile',
+  COMPONENT_DID_MOUNT: 'component-did-mount',
+  COMPONENT_DID_UPDATE: 'component-did-update',
+  RENDER: 'render',
 }
 
 export type BrowserEventListenersType = { eventType: string; callback: () => void }
@@ -25,11 +25,11 @@ export const componentPlaceholderAttributeNameId = 'data-id'
 
 export default class BaseComponent<TProps> {
   private eventBus = new EventBus()
+  private componentId = ''
   protected template: (locals: Record<string, unknown>) => string = () => ''
-  private internalId = ''
 
   constructor(protected props: BaseComponentProps) {
-    this.internalId = `_id_${makeUUID()}`
+    this.componentId = `_id_${makeUUID()}`
     this.registerEvents()
 
     return this
@@ -44,30 +44,30 @@ export default class BaseComponent<TProps> {
   }
 
   public getInternalId() {
-    return this.internalId
+    return this.componentId
   }
 
   private registerEvents() {
-    this.eventBus.on(LIFECYCLE_EVENTS.FLOW_COMPILE, this.compile.bind(this))
-    this.eventBus.on(LIFECYCLE_EVENTS.FLOW_CDM, this.componentDidMount.bind(this))
-    this.eventBus.on(LIFECYCLE_EVENTS.FLOW_CDU, this.componentDidUpdate.bind(this))
-    this.eventBus.on(LIFECYCLE_EVENTS.FLOW_RENDER, this.render.bind(this))
+    this.eventBus.on(LIFECYCLE_EVENTS.COMPILE, this.compile.bind(this))
+    this.eventBus.on(LIFECYCLE_EVENTS.COMPONENT_DID_MOUNT, this.componentDidMount.bind(this))
+    this.eventBus.on(LIFECYCLE_EVENTS.COMPONENT_DID_UPDATE, this.componentDidUpdate.bind(this))
+    this.eventBus.on(LIFECYCLE_EVENTS.RENDER, this.render.bind(this))
   }
 
   private getRootElement = () => {
     return document.querySelector(this.props.HTMLRoot)
   }
 
-  private createTemplatePlaceholder() {
-    return `<div ${componentPlaceholderAttributeNameId}="${this.internalId}"></div>`
+  protected createTemplatePlaceholder() {
+    return `<div ${componentPlaceholderAttributeNameId}="${this.componentId}"></div>`
   }
 
   protected dispatchCompile() {
-    this.dispatch(LIFECYCLE_EVENTS.FLOW_COMPILE as LyfecycleEventType)
+    this.dispatch(LIFECYCLE_EVENTS.COMPILE as LyfecycleEventType)
   }
 
   protected dispatchRender() {
-    this.dispatch(LIFECYCLE_EVENTS.FLOW_RENDER as LyfecycleEventType)
+    this.dispatch(LIFECYCLE_EVENTS.RENDER as LyfecycleEventType)
   }
 
   private compile() {
@@ -128,7 +128,7 @@ export default class BaseComponent<TProps> {
       HTMLRootElement.replaceChildren(compiledTemplate)
     } else {
       const updatedElement = document.querySelector(
-        `[${componentPlaceholderAttributeNameId}=${this.internalId}]`,
+        `[${componentPlaceholderAttributeNameId}=${this.componentId}]`,
       )
 
       if (updatedElement) {

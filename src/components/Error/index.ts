@@ -1,12 +1,20 @@
 import { Button, BaseComponent } from '@/components'
 
-import templateString from './index.pug'
+import template from './index.pug'
 import './styles.scss'
+
+export type ErrorPropsType = {
+  status: string
+  text: string
+  children: {
+    button: {}
+  }
+}
 
 const buttonProps = { title: 'Назад к чатам', outline: true }
 
-export default class Error extends BaseComponent {
-  protected template = templateString
+export default class Error extends BaseComponent<ErrorPropsType> {
+  protected template = template
 
   constructor(props) {
     super({

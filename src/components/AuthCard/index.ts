@@ -1,17 +1,18 @@
 import { BaseComponent, Form, Button } from '@/components'
-import { InputPropsType } from '@/components/Input'
 
-import templateString from './index.pug'
+import template from './index.pug'
 import './styles.scss'
 
 export type AuthCardPropsType = {
   title: string
-  fields: InputPropsType[]
-  type: 'signIn' | 'signUp'
+  children: {
+    form: Form
+    outlineButton: Button
+  }
 }
 
-export default class AuthCard extends BaseComponent {
-  protected template = templateString
+export default class AuthCard extends BaseComponent<AuthCardPropsType> {
+  protected template = template
 
   constructor(props: AuthCardPropsType) {
     super(props)

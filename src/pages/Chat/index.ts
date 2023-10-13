@@ -1,7 +1,5 @@
-import { Form, RoomCard } from '@/components'
-import { MainLayout } from '@/layouts'
-
-import './styles.scss'
+import { Form, RoomCard, Input, Button } from '@/components'
+import { ChatLayout } from '@/layouts'
 
 const senders = [
   {
@@ -23,22 +21,20 @@ const senders = [
   },
 ]
 
+const arrowIconPath = '../../../static/icons/arrow.svg#arrow'
 const field = { placeholder: 'Type your message here...', type: 'text', name: 'message' }
+
 const formProps = {
-  fields: [field],
-  submitClassName: 'chat__submit',
-  inputProps: {
-    type: 'textarea',
-    additionalClass: 'chat__input',
-    placeholder: 'Type your message here...',
+  children: {
+    fields: [new Input(field)],
+    button: new Button({ type: 'submit', icon: arrowIconPath }),
   },
 }
-const roomCards = senders.map((sender) => new RoomCard(sender))
-const arrowIconPath = '../../../static/icons/arrow.svg#arrow'
+const roomCards = senders.map((sender) => new RoomCard({ sender }))
 
 export default class Chat {
   constructor() {
-    return new MainLayout({
+    return new ChatLayout({
       children: {
         form: new Form(formProps),
         roomCards,

@@ -7,11 +7,11 @@
 
     margin: 0 auto;
   }
-  
+
   &__form {
     @extend %flex-column;
 
-    width: 400px
+    width: 400px;
   }
 
   &__fields {

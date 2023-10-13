@@ -1,3 +1,5 @@
 export { default as AuthLayout } from './Auth'
-export { default as MainLayout } from './Main'
+export { default as ChatLayout } from './Chat'
 export { default as ErrorLayout } from './Error'
+export { default as BaseLayout } from './Base'
+export { default as SettingsLayout } from './Settings'

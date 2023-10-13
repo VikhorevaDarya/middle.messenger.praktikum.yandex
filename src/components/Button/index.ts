@@ -1,6 +1,6 @@
 import BaseComponent, { BaseComponentProps } from '@/components/Base'
 
-import templateString from './index.pug'
+import template from './index.pug'
 import './styles.scss'
 
 type ButtonProps = {
@@ -9,11 +9,11 @@ type ButtonProps = {
   id?: string
   value?: string
   disabled?: boolean
-  additionalClass?: string
+  icon?: string
 } & BaseComponentProps
 
-export default class Button extends BaseComponent {
-  protected template = templateString
+export default class Button extends BaseComponent<ButtonProps> {
+  protected template = template
 
   constructor(props: ButtonProps) {
     super(props)

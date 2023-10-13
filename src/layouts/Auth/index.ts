@@ -1,16 +1,10 @@
-import { BaseComponent } from '@/components'
+import { BaseLayout } from '@/layouts'
 
-import templateString from './index.pug'
+import template from './index.pug'
 import './styles.scss'
 
-const HTMLRoot = '#root'
-
-export default class AuthLayout extends BaseComponent {
-  protected template = templateString
-
+export default class AuthLayout {
   constructor(props) {
-    super({ HTMLRoot, ...props })
-
-    this.dispatchRender()
+    return new BaseLayout(props, template)
   }
 }

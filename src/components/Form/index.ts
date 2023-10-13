@@ -1,21 +1,18 @@
-import BaseComponent, { BaseComponentProps } from '@/components/Base'
-import { InputPropsType } from '@/components/Input'
+import { BaseComponent, Input, Button } from '@/components'
 
-import templateString from './index.pug'
+import template from './index.pug'
 import './styles.scss'
 
 export type FormProps = {
   children: {
-    fields: InputPropsType[]
+    fields: Input[]
+    button: Button
   }
-  submitClassName?: string
-  formClassName?: string
-  submitTitle: string
-  inputProps: {}
-} & BaseComponentProps
+  class?: string
+}
 
-export default class Form extends BaseComponent {
-  protected template = templateString
+export default class Form extends BaseComponent<FormProps> {
+  protected template = template
 
   constructor(props: FormProps) {
     super(props)

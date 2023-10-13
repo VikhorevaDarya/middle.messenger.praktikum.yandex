@@ -1,7 +1,5 @@
-import { MainLayout } from '@/layouts'
+import { SettingsLayout } from '@/layouts'
 import { Form, Input, Button } from '@/components'
-
-import './styles.scss'
 
 const fields = [
   {
@@ -56,11 +54,11 @@ const fields = [
 
 const inputs = fields.map((field) => new Input(field))
 
-export default class SettingsPage {
+export default class Settings {
   constructor() {
-    return new MainLayout({
+    return new SettingsLayout({
       children: {
-        block: new Form({
+        form: new Form({
           children: {
             fields: inputs,
             button: new Button({

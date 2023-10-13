@@ -1,7 +1,6 @@
-
 -
-  const { sender } = params 
-  const { name, avatarSrc, lastMessage, unread } = sender
+  const { avatarSrc, lastMessage, name, undread } = sender
+  const { text, time } = lastMessage
   const nameFirstLetter = name.charAt(0)
 
 .room-card
@@ -13,10 +12,10 @@
 
   .room-card__content
     span.room-card__header
-      h2.room-card__sender-name #{name}
+      h2.room-card__sender-name !{name}
       if unread 
-        span.room-card__unread #{unread}
+        span.room-card__unread !{unread}
 
     span.room-card__footer
-      span.room-card__message #{lastMessage.text}
-      time.room-card__time #{lastMessage.time}
+      span.room-card__message !{text}
+      time.room-card__time !{time}

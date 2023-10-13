@@ -1,0 +1,13 @@
+section.chat
+  -
+    const { roomCards, form } = children
+ 
+  .chat__rooms-list
+    each card in roomCards
+      | !{card}
+  .chat__room
+    .chat__room-header
+    .chat__room-messages 
+
+    .chat__form
+      | !{form} 
